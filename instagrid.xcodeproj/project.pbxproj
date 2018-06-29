@@ -12,6 +12,9 @@
 		CADF537520E634AD0053B572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CADF537320E634AD0053B572 /* Main.storyboard */; };
 		CADF537720E634AE0053B572 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CADF537620E634AE0053B572 /* Assets.xcassets */; };
 		CADF537A20E634AE0053B572 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CADF537820E634AE0053B572 /* LaunchScreen.storyboard */; };
+		CADF538220E635BF0053B572 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CADF538120E635BF0053B572 /* Delm-Medium.otf */; };
+		CADF538420E635CB0053B572 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CADF538320E635CB0053B572 /* ThirstySoftRegular.otf */; };
+		CADF538A20E6368D0053B572 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CADF538920E6368D0053B572 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		CADF537620E634AE0053B572 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CADF537920E634AE0053B572 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CADF537B20E634AE0053B572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CADF538120E635BF0053B572 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
+		CADF538320E635CB0053B572 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
+		CADF538920E6368D0053B572 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +60,49 @@
 		CADF536E20E634AD0053B572 /* instagrid */ = {
 			isa = PBXGroup;
 			children = (
-				CADF536F20E634AD0053B572 /* AppDelegate.swift */,
-				CADF537120E634AD0053B572 /* ViewController.swift */,
-				CADF537320E634AD0053B572 /* Main.storyboard */,
-				CADF537620E634AE0053B572 /* Assets.xcassets */,
-				CADF537820E634AE0053B572 /* LaunchScreen.storyboard */,
-				CADF537B20E634AE0053B572 /* Info.plist */,
+				CADF538820E6364A0053B572 /* Supporting files */,
+				CADF538720E6363E0053B572 /* View */,
+				CADF538620E636350053B572 /* Controller */,
+				CADF538520E636260053B572 /* Model */,
 			);
 			path = instagrid;
+			sourceTree = "<group>";
+		};
+		CADF538520E636260053B572 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CADF538620E636350053B572 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CADF537120E634AD0053B572 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CADF538720E6363E0053B572 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CADF537320E634AD0053B572 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CADF538820E6364A0053B572 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				CADF537B20E634AE0053B572 /* Info.plist */,
+				CADF536F20E634AD0053B572 /* AppDelegate.swift */,
+				CADF538920E6368D0053B572 /* Default-568h@2x.png */,
+				CADF537820E634AE0053B572 /* LaunchScreen.storyboard */,
+				CADF538320E635CB0053B572 /* ThirstySoftRegular.otf */,
+				CADF538120E635BF0053B572 /* Delm-Medium.otf */,
+				CADF537620E634AE0053B572 /* Assets.xcassets */,
+			);
+			path = "Supporting files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,7 +165,10 @@
 			files = (
 				CADF537A20E634AE0053B572 /* LaunchScreen.storyboard in Resources */,
 				CADF537720E634AE0053B572 /* Assets.xcassets in Resources */,
+				CADF538420E635CB0053B572 /* ThirstySoftRegular.otf in Resources */,
+				CADF538220E635BF0053B572 /* Delm-Medium.otf in Resources */,
 				CADF537520E634AD0053B572 /* Main.storyboard in Resources */,
+				CADF538A20E6368D0053B572 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
