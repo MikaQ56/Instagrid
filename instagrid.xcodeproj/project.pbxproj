@@ -60,6 +60,7 @@
 		CADF536E20E634AD0053B572 /* instagrid */ = {
 			isa = PBXGroup;
 			children = (
+				CADF537B20E634AE0053B572 /* Info.plist */,
 				CADF538820E6364A0053B572 /* Supporting files */,
 				CADF538720E6363E0053B572 /* View */,
 				CADF538620E636350053B572 /* Controller */,
@@ -94,7 +95,6 @@
 		CADF538820E6364A0053B572 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
-				CADF537B20E634AE0053B572 /* Info.plist */,
 				CADF536F20E634AD0053B572 /* AppDelegate.swift */,
 				CADF538920E6368D0053B572 /* Default-568h@2x.png */,
 				CADF537820E634AE0053B572 /* LaunchScreen.storyboard */,
