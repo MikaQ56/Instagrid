@@ -10,16 +10,27 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var selectedIcon: [UIImageView]!
+    @IBOutlet var gridView: GridView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func didTapLayout1() {
+        selectedIcon[1].isHidden = false
+        gridView.layout = .grid1
     }
-
-
+    
+    @IBAction func didTapLayout2() {
+        selectedIcon[2].isHidden = false
+        gridView.layout = .grid2
+    }
+    
+    @IBAction func didTapLayout3() {
+        selectedIcon[0].isHidden = false
+        gridView.layout = .grid3
+    }
 }
 
