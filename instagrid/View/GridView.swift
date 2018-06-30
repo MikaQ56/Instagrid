@@ -30,11 +30,11 @@ class GridView: UIView {
     private func setLayout(_ layout: Grid) {
         switch layout {
         case .grid1:
-            square1.isHidden = false
-            square2.isHidden = false
+            square1.isHidden = true
+            square2.isHidden = true
             square3.isHidden = false
             square4.isHidden = false
-            rectangle1.isHidden = true
+            rectangle1.isHidden = false
             rectangle2.isHidden = true
         case .grid2:
             square1.isHidden = false
@@ -44,11 +44,11 @@ class GridView: UIView {
             rectangle1.isHidden = true
             rectangle2.isHidden = false
         case .grid3:
-            square1.isHidden = true
-            square2.isHidden = true
+            square1.isHidden = false
+            square2.isHidden = false
             square3.isHidden = false
             square4.isHidden = false
-            rectangle1.isHidden = false
+            rectangle1.isHidden = true
             rectangle2.isHidden = true
         }
     }

@@ -10,7 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet var selectedIcon: [UIImageView]!
+   
+    @IBOutlet var selectedIcons: [UIImageView]!
     @IBOutlet var gridView: GridView!
     
     override func viewDidLoad() {
@@ -18,19 +19,29 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    @IBAction func didTapLayout1() {
-        selectedIcon[1].isHidden = false
+    @IBAction func didTapLayout1Button() {
+        displaySelectedIcon(at: 0)
         gridView.layout = .grid1
     }
     
-    @IBAction func didTapLayout2() {
-        selectedIcon[2].isHidden = false
+    @IBAction func didTapLayout2Button() {
+        displaySelectedIcon(at: 1)
         gridView.layout = .grid2
     }
     
-    @IBAction func didTapLayout3() {
-        selectedIcon[0].isHidden = false
+    @IBAction func didTapLayout3Button() {
+        displaySelectedIcon(at: 2)
         gridView.layout = .grid3
+    }
+    
+    private func displaySelectedIcon(at position: Int) {
+        for (index, icon) in selectedIcons.enumerated() {
+            if index == position {
+                icon.isHidden = false
+            } else {
+                icon.isHidden = true
+            }
+        }
     }
 }
 
