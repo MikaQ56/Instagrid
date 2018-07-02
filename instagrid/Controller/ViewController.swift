@@ -8,15 +8,17 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-   
+    let imagePicker = UIImagePickerController()
+    
     @IBOutlet var selectedIcons: [UIImageView]!
+    
     @IBOutlet var gridView: GridView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        imagePicker.delegate = self
     }
     
     @IBAction func didTapLayout1Button() {
@@ -32,6 +34,13 @@ class ViewController: UIViewController {
     @IBAction func didTapLayout3Button() {
         displaySelectedIcon(at: 2)
         gridView.layout = .grid3
+    }
+    
+    @IBAction func didTapRectangle1Button() {
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+        
+        present(imagePicker, animated: true, completion: nil)
     }
     
     private func displaySelectedIcon(at position: Int) {
