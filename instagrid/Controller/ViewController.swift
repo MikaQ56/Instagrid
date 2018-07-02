@@ -12,6 +12,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     let imagePicker = UIImagePickerController()
     
+    @IBAction func didTapSquare1Button(_ sender: Any) {
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+        
+        present(imagePicker, animated: true, completion: nil)
+    }
     @IBOutlet var selectedIcons: [UIImageView]!
     
     @IBOutlet var gridView: GridView!
@@ -51,6 +57,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 icon.isHidden = true
             }
         }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            gridView.setImage(pickedImage: pickedImage)
+        }
+        dismiss(animated: true, completion: nil)
     }
 }
 

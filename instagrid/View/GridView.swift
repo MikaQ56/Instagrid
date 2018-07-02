@@ -27,6 +27,10 @@ class GridView: UIView {
         }
     }
     
+    func setImage(pickedImage: UIImage) {
+        square1.setImage(pickedImage, for: UIControlState.normal)
+    }
+    
     private func setLayout(_ layout: Grid) {
         switch layout {
         case .grid1:
