@@ -12,15 +12,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     let imagePicker = UIImagePickerController()
     
-    var buttonTag: Int = 0
+    let app = App()
     
-    @IBAction func didTapGridButton(_ sender: Any) {
-        imagePicker.allowsEditing = false
-        imagePicker.sourceType = .photoLibrary
-        let button = sender as! UIButton
-        buttonTag = button.tag
-        present(imagePicker, animated: true, completion: nil)
-    }
+    var buttonTag: Int = 0
     
     @IBOutlet var selectedIcons: [UIImageView]!
     
@@ -29,6 +23,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
+        let directions: [UISwipeGestureRecognizerDirection] = [.up,.left]
+        for direction in directions {
+            let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeGridView(_:)))
+            gridView.addGestureRecognizer(swipeGesture)
+            swipeGesture.direction = direction
+            gridView.isUserInteractionEnabled = true
+        }
+        
+    }
+    
+    @objc func swipeGridView(_ sender: UISwipeGestureRecognizer) {
+        switch sender.state {
+        case .began, .changed:
+            transformGridViewWith(gesture: sender)
+        case .cancelled, .ended:
+            let image = app.setImage(from: gridView)
+            let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+            present(activityViewController, animated: true, completion: nil)
+        default:
+            break
+        }
     }
     
     @IBAction func didTapLayoutButton(_ sender: UIButton) {
@@ -45,6 +60,33 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             break
         }
         
+    }
+    
+    @IBAction func didTapGridButton(_ sender: Any) {
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+        let button = sender as! UIButton
+        buttonTag = button.tag
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    private func transformGridViewWith(gesture: UISwipeGestureRecognizer) {
+        let screenHeigth = UIScreen.main.bounds.height
+        let screenWidth = UIScreen.main.bounds.width
+        let translationTransform: CGAffineTransform
+        print(gesture.direction)
+        if gesture.direction == .up {
+            translationTransform = CGAffineTransform(scaleX: 0, y: screenHeigth)
+        } else {
+            translationTransform = CGAffineTransform(scaleX: screenWidth, y: 0)
+        }
+        UIView.animate(withDuration: 0.3, animations: {
+            self.gridView.transform = translationTransform
+        }) { (success) in
+            if success {
+                self.gridView.transform = .identity
+            }
+        }
     }
     
     private func displaySelectedIcon(from buttonTag: Int) {
