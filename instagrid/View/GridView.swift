@@ -27,8 +27,24 @@ class GridView: UIView {
         }
     }
     
-    func setImage(pickedImage: UIImage) {
-        square1.setImage(pickedImage, for: UIControlState.normal)
+    func setImage(pickedImage: UIImage, buttonTag: Int) {
+        switch buttonTag {
+        case 1:
+            square1.setImage(pickedImage, for: UIControlState.normal)
+        case 2:
+            square2.setImage(pickedImage, for: UIControlState.normal)
+        case 3:
+            square3.setImage(pickedImage, for: UIControlState.normal)
+        case 4:
+            square4.setImage(pickedImage, for: UIControlState.normal)
+        case 5:
+            rectangle1.setImage(pickedImage, for: UIControlState.normal)
+        case 6:
+            rectangle2.setImage(pickedImage, for: UIControlState.normal)
+        default:
+            break
+        }
+        
     }
     
     private func setLayout(_ layout: Grid) {

@@ -12,12 +12,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     let imagePicker = UIImagePickerController()
     
-    @IBAction func didTapSquare1Button(_ sender: Any) {
+    var buttonTag: Int = 0
+    
+    @IBAction func didTapGridButton(_ sender: Any) {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary
-        
+        let button = sender as! UIButton
+        buttonTag = button.tag
         present(imagePicker, animated: true, completion: nil)
     }
+    
     @IBOutlet var selectedIcons: [UIImageView]!
     
     @IBOutlet var gridView: GridView!
@@ -27,31 +31,25 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePicker.delegate = self
     }
     
-    @IBAction func didTapLayout1Button() {
-        displaySelectedIcon(at: 0)
-        gridView.layout = .grid1
-    }
-    
-    @IBAction func didTapLayout2Button() {
-        displaySelectedIcon(at: 1)
-        gridView.layout = .grid2
-    }
-    
-    @IBAction func didTapLayout3Button() {
-        displaySelectedIcon(at: 2)
-        gridView.layout = .grid3
-    }
-    
-    @IBAction func didTapRectangle1Button() {
-        imagePicker.allowsEditing = false
-        imagePicker.sourceType = .photoLibrary
+    @IBAction func didTapLayoutButton(_ sender: UIButton) {
+        buttonTag = sender.tag
+        displaySelectedIcon(from: buttonTag)
+        switch buttonTag {
+        case 0:
+           gridView.layout = .grid1
+        case 1:
+            gridView.layout = .grid2
+        case 2:
+            gridView.layout = .grid3
+        default:
+            break
+        }
         
-        present(imagePicker, animated: true, completion: nil)
     }
     
-    private func displaySelectedIcon(at position: Int) {
+    private func displaySelectedIcon(from buttonTag: Int) {
         for (index, icon) in selectedIcons.enumerated() {
-            if index == position {
+            if index == buttonTag {
                 icon.isHidden = false
             } else {
                 icon.isHidden = true
@@ -61,7 +59,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            gridView.setImage(pickedImage: pickedImage)
+            gridView.setImage(pickedImage: pickedImage, buttonTag: buttonTag)
         }
         dismiss(animated: true, completion: nil)
     }

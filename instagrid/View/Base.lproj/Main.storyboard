@@ -30,20 +30,26 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AVv-Pj-bry" userLabel="Grid" customClass="GridView" customModule="instagrid" customModuleProvider="target">
                                 <rect key="frame" x="195" y="62.666666666666657" width="343" height="342.33333333333337"/>
                                 <subviews>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyh-5h-S84" userLabel="Rectangle1">
+                                    <button hidden="YES" opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyh-5h-S84" userLabel="Rectangle1">
                                         <rect key="frame" x="15" y="15.000000000000014" width="313" height="147.66666666666669"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="kyh-5h-S84" secondAttribute="height" multiplier="270:127" id="hrc-AR-uof"/>
                                         </constraints>
                                         <state key="normal" image="Plus"/>
+                                        <connections>
+                                            <action selector="didTapGridButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t1J-z3-2qj"/>
+                                        </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZD-Dw-zbJ" userLabel="Rectangle2">
+                                    <button hidden="YES" opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZD-Dw-zbJ" userLabel="Rectangle2">
                                         <rect key="frame" x="15" y="177.66666666666669" width="313" height="149.66666666666669"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="Plus"/>
+                                        <connections>
+                                            <action selector="didTapGridButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YT4-Qp-5DU"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8VG-3O-6Su" userLabel="Square1">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8VG-3O-6Su" userLabel="Square1">
                                         <rect key="frame" x="15" y="15" width="148.66666666666666" height="149"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -51,33 +57,41 @@
                                         </constraints>
                                         <state key="normal" image="Plus"/>
                                         <connections>
-                                            <action selector="didTapRectangle1Button" destination="BYZ-38-t0r" eventType="touchUpInside" id="3XC-Da-j7S"/>
-                                            <action selector="didTapSquare1Button:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b89-Ow-bb2"/>
+                                            <action selector="didTapGridButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HbD-4o-2uw"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4vr-T3-wY3" userLabel="Square2">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4vr-T3-wY3" userLabel="Square2">
                                         <rect key="frame" x="178.66666666666669" y="15" width="149.33333333333331" height="149"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="4vr-T3-wY3" secondAttribute="height" multiplier="1:1" id="ttw-I9-CMX"/>
                                         </constraints>
                                         <state key="normal" image="Plus"/>
+                                        <connections>
+                                            <action selector="didTapGridButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a9J-kD-7t0"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lOZ-HS-CCy" userLabel="Square3">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lOZ-HS-CCy" userLabel="Square3">
                                         <rect key="frame" x="15" y="179" width="148.66666666666666" height="148.33333333333337"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="lOZ-HS-CCy" secondAttribute="height" multiplier="1:1" id="aP5-VH-bD1"/>
                                         </constraints>
                                         <state key="normal" image="Plus"/>
+                                        <connections>
+                                            <action selector="didTapGridButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eU3-Ja-lVz"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8MV-VQ-h8r" userLabel="Square4">
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8MV-VQ-h8r" userLabel="Square4">
                                         <rect key="frame" x="178.66666666666669" y="178" width="149.33333333333331" height="149.33333333333337"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="8MV-VQ-h8r" secondAttribute="height" multiplier="1:1" id="rsy-LX-7s2"/>
                                         </constraints>
                                         <state key="normal" image="Plus"/>
+                                        <connections>
+                                            <action selector="didTapGridButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="il1-ai-nkA"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.062745098039215685" green="0.40000000000000002" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -128,27 +142,27 @@
                                 </constraints>
                                 <state key="normal" image="Layout 1"/>
                                 <connections>
-                                    <action selector="didTapLayout1Button" destination="BYZ-38-t0r" eventType="touchUpInside" id="sdj-lo-gQs"/>
+                                    <action selector="didTapLayoutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="udw-wT-aUs"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PiI-wk-odm" userLabel="Layout2">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PiI-wk-odm" userLabel="Layout2">
                                 <rect key="frame" x="587" y="180.33333333333334" width="107" height="107.66666666666666"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="PiI-wk-odm" secondAttribute="height" multiplier="1:1" id="hWL-ph-Tce"/>
                                 </constraints>
                                 <state key="normal" image="Layout 2"/>
                                 <connections>
-                                    <action selector="didTapLayout2Button" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qpn-0V-XOd"/>
+                                    <action selector="didTapLayoutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EBl-Af-j84"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w4I-EJ-U8S" userLabel="Layout3">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w4I-EJ-U8S" userLabel="Layout3">
                                 <rect key="frame" x="587" y="298" width="107" height="107"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="w4I-EJ-U8S" secondAttribute="height" multiplier="1:1" id="a1e-Yt-OIS"/>
                                 </constraints>
                                 <state key="normal" image="Layout 3"/>
                                 <connections>
-                                    <action selector="didTapLayout3Button" destination="BYZ-38-t0r" eventType="touchUpInside" id="B7z-Ur-T8M"/>
+                                    <action selector="didTapLayoutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YDl-9v-N9h"/>
                                 </connections>
                             </button>
                             <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="Selected" translatesAutoresizingMaskIntoConstraints="NO" id="b65-mY-Oba" userLabel="Selected1">
@@ -260,23 +274,23 @@
                                 <exclude reference="rVY-AN-SB2"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="6Jy-g0-Uxk"/>
-                                <exclude reference="Hdc-3g-2zB"/>
                                 <exclude reference="DfW-aY-3fr"/>
                                 <exclude reference="VSp-OY-jmY"/>
                                 <exclude reference="o27-8c-RAk"/>
                                 <exclude reference="1M1-jm-Vkg"/>
                                 <exclude reference="yzL-Bj-xKw"/>
+                                <exclude reference="6Jy-g0-Uxk"/>
+                                <exclude reference="Hdc-3g-2zB"/>
                                 <exclude reference="2fm-rw-ghO"/>
                                 <exclude reference="5Mb-NX-1XZ"/>
                                 <exclude reference="eqr-U3-pKw"/>
                                 <exclude reference="WLO-Yg-hc7"/>
                                 <exclude reference="T8s-lJ-3xi"/>
+                                <exclude reference="Yns-FL-jdT"/>
                                 <exclude reference="OoD-oQ-mEu"/>
                                 <exclude reference="cph-he-ASV"/>
                                 <exclude reference="k7K-y6-XeB"/>
                                 <exclude reference="ph6-qw-uUq"/>
-                                <exclude reference="Yns-FL-jdT"/>
                                 <exclude reference="QAl-1B-U6m"/>
                                 <exclude reference="yQm-fQ-x8Z"/>
                                 <exclude reference="c8Y-wH-mb6"/>
@@ -290,18 +304,18 @@
                                 <include reference="rVY-AN-SB2"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="CF0-xL-VnH"/>
-                                <exclude reference="pl9-Ya-9ce"/>
-                                <exclude reference="r4l-wY-P3P"/>
-                                <include reference="6Jy-g0-Uxk"/>
-                                <include reference="Hdc-3g-2zB"/>
-                                <exclude reference="NUN-ww-PrB"/>
-                                <exclude reference="boB-ba-asN"/>
                                 <exclude reference="DfW-aY-3fr"/>
                                 <include reference="VSp-OY-jmY"/>
                                 <include reference="o27-8c-RAk"/>
                                 <include reference="1M1-jm-Vkg"/>
                                 <include reference="yzL-Bj-xKw"/>
+                                <include reference="6Jy-g0-Uxk"/>
+                                <include reference="Hdc-3g-2zB"/>
+                                <exclude reference="NUN-ww-PrB"/>
+                                <exclude reference="boB-ba-asN"/>
+                                <exclude reference="CF0-xL-VnH"/>
+                                <exclude reference="pl9-Ya-9ce"/>
+                                <exclude reference="r4l-wY-P3P"/>
                                 <exclude reference="2fm-rw-ghO"/>
                                 <exclude reference="4KK-MA-mdR"/>
                                 <include reference="5Mb-NX-1XZ"/>
@@ -310,6 +324,7 @@
                                 <include reference="WLO-Yg-hc7"/>
                                 <exclude reference="g6m-Js-F99"/>
                                 <include reference="T8s-lJ-3xi"/>
+                                <include reference="Yns-FL-jdT"/>
                                 <exclude reference="HSw-UZ-Fgi"/>
                                 <include reference="OoD-oQ-mEu"/>
                                 <exclude reference="Rj9-D6-nvU"/>
@@ -317,7 +332,6 @@
                                 <exclude reference="jbK-RR-IjS"/>
                                 <include reference="k7K-y6-XeB"/>
                                 <include reference="ph6-qw-uUq"/>
-                                <include reference="Yns-FL-jdT"/>
                                 <include reference="QAl-1B-U6m"/>
                                 <exclude reference="gCe-UF-WrV"/>
                                 <exclude reference="u9S-bt-rff"/>
