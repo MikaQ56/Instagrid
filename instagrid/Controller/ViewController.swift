@@ -36,7 +36,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @objc func swipeGridView(_ sender: UISwipeGestureRecognizer) {
         switch sender.state {
         case .began, .changed:
-            transformGridViewWith(gesture: sender)
+            transformGridView(gesture: sender)
         case .cancelled, .ended:
             let image = app.setImage(from: gridView)
             let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
@@ -70,11 +70,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(imagePicker, animated: true, completion: nil)
     }
     
-    private func transformGridViewWith(gesture: UISwipeGestureRecognizer) {
+    private func transformGridView(gesture: UISwipeGestureRecognizer) {
         let screenHeigth = UIScreen.main.bounds.height
+        print(screenHeigth)
         let screenWidth = UIScreen.main.bounds.width
+        print(screenWidth)
         let translationTransform: CGAffineTransform
-        print(gesture.direction)
         if gesture.direction == .up {
             translationTransform = CGAffineTransform(scaleX: 0, y: screenHeigth)
         } else {
