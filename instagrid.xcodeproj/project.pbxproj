@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CA59819B20E77A23005E4B18 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA59819A20E77A23005E4B18 /* GridView.swift */; };
-		CA59819D20EB9A09005E4B18 /* Share.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA59819C20EB9A09005E4B18 /* Share.swift */; };
+		CA59819D20EB9A09005E4B18 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA59819C20EB9A09005E4B18 /* App.swift */; };
 		CADF537020E634AD0053B572 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADF536F20E634AD0053B572 /* AppDelegate.swift */; };
 		CADF537220E634AD0053B572 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADF537120E634AD0053B572 /* ViewController.swift */; };
 		CADF537520E634AD0053B572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CADF537320E634AD0053B572 /* Main.storyboard */; };
@@ -21,7 +21,8 @@
 
 /* Begin PBXFileReference section */
 		CA59819A20E77A23005E4B18 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
-		CA59819C20EB9A09005E4B18 /* Share.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Share.swift; sourceTree = "<group>"; };
+		CA59819C20EB9A09005E4B18 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		CA59819F20ECF1D2005E4B18 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		CADF536C20E634AD0053B572 /* instagrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instagrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CADF536F20E634AD0053B572 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CADF537120E634AD0053B572 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -45,11 +46,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA59819E20ECF1D1005E4B18 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CA59819F20ECF1D2005E4B18 /* Photos.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CADF536320E634AD0053B572 = {
 			isa = PBXGroup;
 			children = (
 				CADF536E20E634AD0053B572 /* instagrid */,
 				CADF536D20E634AD0053B572 /* Products */,
+				CA59819E20ECF1D1005E4B18 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,7 +86,7 @@
 		CADF538520E636260053B572 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CA59819C20EB9A09005E4B18 /* Share.swift */,
+				CA59819C20EB9A09005E4B18 /* App.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -186,7 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CADF537220E634AD0053B572 /* ViewController.swift in Sources */,
-				CA59819D20EB9A09005E4B18 /* Share.swift in Sources */,
+				CA59819D20EB9A09005E4B18 /* App.swift in Sources */,
 				CA59819B20E77A23005E4B18 /* GridView.swift in Sources */,
 				CADF537020E634AD0053B572 /* AppDelegate.swift in Sources */,
 			);

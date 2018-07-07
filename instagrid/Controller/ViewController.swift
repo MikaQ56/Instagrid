@@ -35,12 +35,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @objc func swipeGridView(_ sender: UISwipeGestureRecognizer) {
         switch sender.state {
-        case .began, .changed:
-            transformGridView(gesture: sender)
         case .cancelled, .ended:
-            let image = app.setImage(from: gridView)
-            let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+            transformGridView(gesture: sender)
+            let imageCreated = app.createImage(from: gridView)
+            let activityViewController = UIActivityViewController(activityItems: [imageCreated], applicationActivities: nil)
             present(activityViewController, animated: true, completion: nil)
+            completionHandler(for: activityViewController)
         default:
             break
         }
@@ -62,11 +62,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
-    @IBAction func didTapGridButton(_ sender: Any) {
+    @IBAction func didTapGridButton(_ sender: UIButton) {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary
-        let button = sender as! UIButton
-        buttonTag = button.tag
+        buttonTag = sender.tag
         present(imagePicker, animated: true, completion: nil)
     }
     
@@ -77,15 +76,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         print(screenWidth)
         let translationTransform: CGAffineTransform
         if gesture.direction == .up {
-            translationTransform = CGAffineTransform(scaleX: 0, y: screenHeigth)
+            translationTransform = CGAffineTransform(translationX: 0, y: -screenHeigth)
         } else {
-            translationTransform = CGAffineTransform(scaleX: screenWidth, y: 0)
+            translationTransform = CGAffineTransform(translationX: -screenWidth, y: 0)
         }
-        UIView.animate(withDuration: 0.3, animations: {
+        UIView.animate(withDuration: 0.8, animations: {
             self.gridView.transform = translationTransform
         }) { (success) in
             if success {
-                self.gridView.transform = .identity
+                self.gridView.transform = CGAffineTransform(scaleX: 0, y: 0)
             }
         }
     }
@@ -100,7 +99,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
+    private func completionHandler(for activityViewController: UIActivityViewController) {
+        activityViewController.completionWithItemsHandler = { activity, completed, items, error in
+            if !completed {
+                // handle task not completed
+                return
+            }
+            UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+                self.gridView.transform = .identity
+            }, completion:nil)
+        }
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        app.checkPermission()
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             gridView.setImage(pickedImage: pickedImage, buttonTag: buttonTag)
         }
