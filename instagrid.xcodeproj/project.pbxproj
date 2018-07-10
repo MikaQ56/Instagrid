@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CA59819B20E77A23005E4B18 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA59819A20E77A23005E4B18 /* GridView.swift */; };
 		CA59819D20EB9A09005E4B18 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA59819C20EB9A09005E4B18 /* App.swift */; };
+		CA6CA8A820F505570021C2C7 /* ToolBelt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6CA8A720F505570021C2C7 /* ToolBelt.swift */; };
 		CADF537020E634AD0053B572 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADF536F20E634AD0053B572 /* AppDelegate.swift */; };
 		CADF537220E634AD0053B572 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADF537120E634AD0053B572 /* ViewController.swift */; };
 		CADF537520E634AD0053B572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CADF537320E634AD0053B572 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 		CA59819A20E77A23005E4B18 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		CA59819C20EB9A09005E4B18 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		CA59819F20ECF1D2005E4B18 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		CA6CA8A720F505570021C2C7 /* ToolBelt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBelt.swift; sourceTree = "<group>"; };
 		CADF536C20E634AD0053B572 /* instagrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instagrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CADF536F20E634AD0053B572 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CADF537120E634AD0053B572 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				CADF538320E635CB0053B572 /* ThirstySoftRegular.otf */,
 				CADF538120E635BF0053B572 /* Delm-Medium.otf */,
 				CADF537620E634AE0053B572 /* Assets.xcassets */,
+				CA6CA8A720F505570021C2C7 /* ToolBelt.swift */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CADF537220E634AD0053B572 /* ViewController.swift in Sources */,
+				CA6CA8A820F505570021C2C7 /* ToolBelt.swift in Sources */,
 				CA59819D20EB9A09005E4B18 /* App.swift in Sources */,
 				CA59819B20E77A23005E4B18 /* GridView.swift in Sources */,
 				CADF537020E634AD0053B572 /* AppDelegate.swift in Sources */,

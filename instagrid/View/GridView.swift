@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 class GridView: UIView {
 
     @IBOutlet private var square1: UIButton!

@@ -30,7 +30,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             swipeGesture.direction = direction
             gridView.isUserInteractionEnabled = true
         }
-        
     }
     
     @objc func swipeGridView(_ sender: UISwipeGestureRecognizer) {
