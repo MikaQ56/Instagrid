@@ -71,11 +71,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     private func transformGridView(gesture: UISwipeGestureRecognizer) {
         let screenHeigth = UIScreen.main.bounds.height
-        print(screenHeigth)
         let screenWidth = UIScreen.main.bounds.width
-        print(screenWidth)
         let translationTransform: CGAffineTransform
-        if gesture.direction == .up {
+        let deviceOrientation = UIDevice.current.orientation
+        if deviceOrientation.isPortrait {
             translationTransform = CGAffineTransform(translationX: 0, y: -screenHeigth)
         } else {
             translationTransform = CGAffineTransform(translationX: -screenWidth, y: 0)
@@ -103,6 +102,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         activityViewController.completionWithItemsHandler = { activity, completed, items, error in
             if !completed {
                 // handle task not completed
+                // Add label to inform that share operation hasn't done
+                self.gridView.transform = .identity
                 return
             }
             UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
