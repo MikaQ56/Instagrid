@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import Photos
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
-    let imagePicker = UIImagePickerController()
     
-    let app = App()
+    // Image Picker Controller initialized
+    private let imagePicker = UIImagePickerController()
     
-    var buttonTag: Int = 0
+    // App model initialized
+    private let app = App()
+    
+    // buttonTag property permits to identify what button is tapped ?
+    private var buttonTag: Int = 0
     
     @IBOutlet var selectedIcons: [UIImageView]!
     
@@ -22,8 +26,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        gridView.layout = .grid1
+        displaySelectedIcon(from: 0)
         imagePicker.delegate = self
+        // Swipe directions available in app
         let directions: [UISwipeGestureRecognizerDirection] = [.up,.left]
+        // Swipe gesture added to app
         for direction in directions {
             let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeGridView(_:)))
             gridView.addGestureRecognizer(swipeGesture)
@@ -32,19 +40,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
+    // Method called when swipe gesture occured
     @objc func swipeGridView(_ sender: UISwipeGestureRecognizer) {
         switch sender.state {
         case .cancelled, .ended:
+            // GridView animation with the swipe gesture
             transformGridView(gesture: sender)
-            let imageCreated = app.createImage(from: gridView)
+            // Create an image file from the gridview to share
+            let imageCreated = createImage(from: gridView)
+            // Initialiez the activity view controller
             let activityViewController = UIActivityViewController(activityItems: [imageCreated], applicationActivities: nil)
+            // Display the activity view controller
             present(activityViewController, animated: true, completion: nil)
+            // Completion handler for activity view controller
             completionHandler(for: activityViewController)
         default:
             break
         }
     }
     
+    // Connect action user when he taps on layout's buttons
     @IBAction func didTapLayoutButton(_ sender: UIButton) {
         buttonTag = sender.tag
         displaySelectedIcon(from: buttonTag)
@@ -61,17 +76,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
+    // Connect action user when he taps on grid's buttons (squares & rectangles)
     @IBAction func didTapGridButton(_ sender: UIButton) {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary
+        // Identified the grid button tapped with its tag
         buttonTag = sender.tag
+        // Display image picker view
         present(imagePicker, animated: true, completion: nil)
     }
     
+    // Animation for swipe gesture on grid view
     private func transformGridView(gesture: UISwipeGestureRecognizer) {
         let screenHeigth = UIScreen.main.bounds.height
         let screenWidth = UIScreen.main.bounds.width
         let translationTransform: CGAffineTransform
+        // Check the device orientation
         let deviceOrientation = UIDevice.current.orientation
         if deviceOrientation.isPortrait {
             translationTransform = CGAffineTransform(translationX: 0, y: -screenHeigth)
@@ -87,6 +107,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
+    // Check if it's necessary to display selected icon image on the layout button
     private func displaySelectedIcon(from buttonTag: Int) {
         for (index, icon) in selectedIcons.enumerated() {
             if index == buttonTag {
@@ -97,6 +118,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
+    // Completion handler for activity view controller
     private func completionHandler(for activityViewController: UIActivityViewController) {
         activityViewController.completionWithItemsHandler = { activity, completed, items, error in
             if !completed {
@@ -111,12 +133,51 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
+    // Method called when user picked an image from photo library
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        app.checkPermission()
+        // Check user's permission to access the photo library
+        checkPermission()
+        // When user picks an image, then update app model
+        if let pickedImageUrl = info[UIImagePickerControllerImageURL] as? NSURL {
+            app.saveImage(url: pickedImageUrl, buttonTag: buttonTag)
+        }
+        // When user picks an image, then update the view
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             gridView.setImage(pickedImage: pickedImage, buttonTag: buttonTag)
         }
         dismiss(animated: true, completion: nil)
+    }
+    
+    // Create an image from gridView to share
+    private func createImage(from view: GridView) -> UIImage {
+        let renderer = UIGraphicsImageRenderer(size: view.bounds.size)
+        let image = renderer.image { ctx in
+            view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        }
+        return image
+    }
+    
+    // Check permission's user to library photo
+    private func checkPermission() {
+        let photoAuthorizationStatus = PHPhotoLibrary.authorizationStatus()
+        switch photoAuthorizationStatus {
+        case .authorized:
+            print("Access is granted by user")
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization({
+                (newStatus) in
+                print("status is \(newStatus)")
+                if newStatus ==  PHAuthorizationStatus.authorized {
+                    /* do stuff here */
+                    print("success")
+                }
+            })
+            print("It is not determined until now")
+        case .restricted:
+            print("User do not have access to photo album.")
+        case .denied:
+            print("User has denied the permission.")
+        }
     }
 }
 

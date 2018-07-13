@@ -7,40 +7,34 @@
 //
 
 import Foundation
-import UIKit
-import Photos
 
 
 class App {
     
-    func createImage(from view: GridView) -> UIImage {
-        let renderer = UIGraphicsImageRenderer(size: view.bounds.size)
-        let image = renderer.image { ctx in
-            view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+    // GridImage type's Array. Images picked by user.
+    private var images = [GridImage]()
+    
+    // Save picked image in images property
+    func saveImage(url: NSURL, buttonTag: Int) {
+        // Initialize GridImage type
+        let image = GridImage(url: url, buttonTag: buttonTag)
+        // Is there an image with associated button ? If yes, then 'existsImage' method returns Int >= 0
+        let index = existsImage(at: buttonTag)
+        if index >= 0 {
+            images.remove(at: index)
         }
-        return image
+        // Picked image added to images property
+        images.append(image)
     }
     
-    func checkPermission() {
-        let photoAuthorizationStatus = PHPhotoLibrary.authorizationStatus()
-        switch photoAuthorizationStatus {
-        case .authorized:
-            print("Access is granted by user")
-        case .notDetermined:
-            PHPhotoLibrary.requestAuthorization({
-                (newStatus) in
-                print("status is \(newStatus)")
-                if newStatus ==  PHAuthorizationStatus.authorized {
-                    /* do stuff here */
-                    print("success")
-                }
-            })
-            print("It is not determined until now")
-        case .restricted:
-            print("User do not have access to photo album.")
-        case .denied:
-            print("User has denied the permission.")
+    // Is there already an image with associated button ? If yes, return image index in images property. Else, return -1
+    private func existsImage(at buttonTag: Int) -> Int {
+        for (index, image) in images.enumerated() {
+            if image.buttonTag == buttonTag {
+                return index
+            }
         }
+        return -1
     }
 }
 

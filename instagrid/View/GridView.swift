@@ -8,9 +8,11 @@
 
 import UIKit
 
+// @IBDesignable attribute added to set up shadows and border with Interface Builder. More details in 'ToolBelt' swift file ('supporting files' folder)
 @IBDesignable
 class GridView: UIView {
-
+    
+    // 4 squares and 2 rectangles compose the GridView
     @IBOutlet private var square1: UIButton!
     @IBOutlet private var square2: UIButton!
     @IBOutlet private var square3: UIButton!
@@ -18,8 +20,18 @@ class GridView: UIView {
     @IBOutlet private var rectangle1: UIButton!
     @IBOutlet private var rectangle2: UIButton!
     
+    // There is 3 possible grids
     enum Grid {
         case grid1, grid2, grid3
+    }
+    
+    private func defaultGrid() {
+        square1.transform = CGAffineTransform(scaleX: 0, y: 0)
+        square2.transform = CGAffineTransform(scaleX: 0, y: 0)
+        square3.transform = CGAffineTransform(scaleX: 0, y: 0)
+        square4.transform = CGAffineTransform(scaleX: 0, y: 0)
+        rectangle1.transform = CGAffineTransform(scaleX: 0, y: 0)
+        rectangle2.transform = CGAffineTransform(scaleX: 0, y: 0)
     }
     
     var layout: Grid = .grid1 {
@@ -28,6 +40,7 @@ class GridView: UIView {
         }
     }
     
+    // When user picked an image from photo library, then this one is set. 
     func setImage(pickedImage: UIImage, buttonTag: Int) {
         switch buttonTag {
         case 1:
@@ -48,6 +61,7 @@ class GridView: UIView {
         
     }
     
+    // Squares and rectangles are hidden depending the grid layout
     private func setLayout(_ layout: Grid) {
         switch layout {
         case .grid1:
