@@ -25,15 +25,6 @@ class GridView: UIView {
         case grid1, grid2, grid3
     }
     
-    private func defaultGrid() {
-        square1.transform = CGAffineTransform(scaleX: 0, y: 0)
-        square2.transform = CGAffineTransform(scaleX: 0, y: 0)
-        square3.transform = CGAffineTransform(scaleX: 0, y: 0)
-        square4.transform = CGAffineTransform(scaleX: 0, y: 0)
-        rectangle1.transform = CGAffineTransform(scaleX: 0, y: 0)
-        rectangle2.transform = CGAffineTransform(scaleX: 0, y: 0)
-    }
-    
     var layout: Grid = .grid1 {
         didSet {
             setLayout(layout)
@@ -71,6 +62,7 @@ class GridView: UIView {
             square4.isHidden = false
             rectangle1.isHidden = false
             rectangle2.isHidden = true
+            animateGrid1()
         case .grid2:
             square1.isHidden = false
             square2.isHidden = false
@@ -78,6 +70,7 @@ class GridView: UIView {
             square4.isHidden = true
             rectangle1.isHidden = true
             rectangle2.isHidden = false
+            animateGrid2()
         case .grid3:
             square1.isHidden = false
             square2.isHidden = false
@@ -85,6 +78,55 @@ class GridView: UIView {
             square4.isHidden = false
             rectangle1.isHidden = true
             rectangle2.isHidden = true
+            animateGrid3()
+        }
+    }
+    
+    func initialScale() {
+        square1.transform = CGAffineTransform(scaleX: 0, y: 0)
+        square2.transform = CGAffineTransform(scaleX: 0, y: 0)
+        square3.transform = CGAffineTransform(scaleX: 0, y: 0)
+        square4.transform = CGAffineTransform(scaleX: 0, y: 1)
+        rectangle1.transform = CGAffineTransform(scaleX: 0, y: 1)
+        rectangle2.transform = CGAffineTransform(scaleX: 0, y: 1)
+    }
+    
+    private func animateGrid1() {
+        UIView.animate(withDuration: 0.4) {
+            self.square3.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }
+        UIView.animate(withDuration: 0.4) {
+            self.square4.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }
+        UIView.animate(withDuration: 0.4) {
+            self.rectangle1.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }
+    }
+    
+    private func animateGrid2(){
+        UIView.animate(withDuration: 0.4) {
+            self.square1.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }
+        UIView.animate(withDuration: 0.4) {
+            self.square2.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }
+        UIView.animate(withDuration: 0.4) {
+            self.rectangle2.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }
+    }
+    
+    private func animateGrid3() {
+        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+            self.square1.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }, completion:nil)
+        UIView.animate(withDuration: 0.4) {
+            self.square2.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }
+        UIView.animate(withDuration: 0.4) {
+            self.square3.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }
+        UIView.animate(withDuration: 0.4) {
+            self.square4.transform = CGAffineTransform(scaleX: 1, y: 1)
         }
     }
 }

@@ -63,9 +63,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func didTapLayoutButton(_ sender: UIButton) {
         buttonTag = sender.tag
         displaySelectedIcon(from: buttonTag)
+        gridView.initialScale()
+        
         switch buttonTag {
         case 0:
-           gridView.layout = .grid1
+            gridView.layout = .grid1
         case 1:
             gridView.layout = .grid2
         case 2:
