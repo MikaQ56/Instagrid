@@ -30,7 +30,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AVv-Pj-bry" userLabel="Grid" customClass="GridView" customModule="instagrid" customModuleProvider="target">
                                 <rect key="frame" x="37" y="213.99999999999997" width="339" height="338.33333333333326"/>
                                 <subviews>
-                                    <button hidden="YES" opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyh-5h-S84" userLabel="Rectangle1">
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyh-5h-S84" userLabel="Rectangle1">
                                         <rect key="frame" x="15" y="15" width="309" height="145.66666666666666"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -41,7 +41,7 @@
                                             <action selector="didTapGridButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t1J-z3-2qj"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZD-Dw-zbJ" userLabel="Rectangle2">
+                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZD-Dw-zbJ" userLabel="Rectangle2">
                                         <rect key="frame" x="15" y="175.66666666666669" width="309" height="147.66666666666669"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="Plus"/>

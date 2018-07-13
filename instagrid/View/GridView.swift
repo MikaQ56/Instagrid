@@ -33,56 +33,24 @@ class GridView: UIView {
     
     // When user picked an image from photo library, then this one is set. 
     func setImage(pickedImage: UIImage, buttonTag: Int) {
-        switch buttonTag {
-        case 1:
-            square1.setImage(pickedImage, for: UIControlState.normal)
-        case 2:
-            square2.setImage(pickedImage, for: UIControlState.normal)
-        case 3:
-            square3.setImage(pickedImage, for: UIControlState.normal)
-        case 4:
-            square4.setImage(pickedImage, for: UIControlState.normal)
-        case 5:
-            rectangle1.setImage(pickedImage, for: UIControlState.normal)
-        case 6:
-            rectangle2.setImage(pickedImage, for: UIControlState.normal)
-        default:
-            break
-        }
-        
+        let button = buttonTapped(is: buttonTag)
+        button.setImage(pickedImage, for: UIControlState.normal)
     }
     
     // Squares and rectangles are hidden depending the grid layout
     private func setLayout(_ layout: Grid) {
+        initialGridScale()
         switch layout {
         case .grid1:
-            square1.isHidden = true
-            square2.isHidden = true
-            square3.isHidden = false
-            square4.isHidden = false
-            rectangle1.isHidden = false
-            rectangle2.isHidden = true
             animateGrid1()
         case .grid2:
-            square1.isHidden = false
-            square2.isHidden = false
-            square3.isHidden = true
-            square4.isHidden = true
-            rectangle1.isHidden = true
-            rectangle2.isHidden = false
             animateGrid2()
         case .grid3:
-            square1.isHidden = false
-            square2.isHidden = false
-            square3.isHidden = false
-            square4.isHidden = false
-            rectangle1.isHidden = true
-            rectangle2.isHidden = true
             animateGrid3()
         }
     }
     
-    func initialScale() {
+    private func initialGridScale() {
         square1.transform = CGAffineTransform(scaleX: 1, y: 0)
         square2.transform = CGAffineTransform(scaleX: 1, y: 0)
         square3.transform = CGAffineTransform(scaleX: 1, y: 0)
@@ -131,7 +99,15 @@ class GridView: UIView {
     }
     
     func pickedImageAnimation(buttonTag: Int) {
-        var button: UIButton?
+        let button = buttonTapped(is: buttonTag)
+        button.transform = CGAffineTransform(scaleX: 0, y: 0)
+        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.7, options: [], animations: {
+            button.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }, completion:nil)
+    }
+    
+    private func buttonTapped(is buttonTag: Int) -> UIButton {
+        var button =  UIButton()
         switch buttonTag {
         case 1:
             button = square1
@@ -148,9 +124,6 @@ class GridView: UIView {
         default:
             break
         }
-        button?.transform = CGAffineTransform(scaleX: 0, y: 0)
-        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.7, options: [], animations: {
-            button?.transform = CGAffineTransform(scaleX: 1, y: 1)
-        }, completion:nil)
+        return button
     }
 }

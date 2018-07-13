@@ -63,8 +63,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func didTapLayoutButton(_ sender: UIButton) {
         buttonTag = sender.tag
         displaySelectedIcon(from: buttonTag)
-        gridView.initialScale()
-        
         switch buttonTag {
         case 0:
             gridView.layout = .grid1
@@ -75,7 +73,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         default:
             break
         }
-        
     }
     
     // Connect action user when he taps on grid's buttons (squares & rectangles)
