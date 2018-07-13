@@ -147,7 +147,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             gridView.setImage(pickedImage: pickedImage, buttonTag: buttonTag)
         }
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true) {
+            self.animatePickedImage(buttonTag: self.buttonTag)
+        }
+    }
+    
+    private func animatePickedImage(buttonTag: Int) {
+        gridView.pickedImageAnimation(buttonTag: buttonTag)
     }
     
     // Create an image from gridView to share

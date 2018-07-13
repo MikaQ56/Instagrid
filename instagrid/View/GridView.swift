@@ -83,10 +83,10 @@ class GridView: UIView {
     }
     
     func initialScale() {
-        square1.transform = CGAffineTransform(scaleX: 0, y: 0)
-        square2.transform = CGAffineTransform(scaleX: 0, y: 0)
-        square3.transform = CGAffineTransform(scaleX: 0, y: 0)
-        square4.transform = CGAffineTransform(scaleX: 0, y: 1)
+        square1.transform = CGAffineTransform(scaleX: 1, y: 0)
+        square2.transform = CGAffineTransform(scaleX: 1, y: 0)
+        square3.transform = CGAffineTransform(scaleX: 1, y: 0)
+        square4.transform = CGAffineTransform(scaleX: 1, y: 0)
         rectangle1.transform = CGAffineTransform(scaleX: 0, y: 1)
         rectangle2.transform = CGAffineTransform(scaleX: 0, y: 1)
     }
@@ -116,9 +116,9 @@ class GridView: UIView {
     }
     
     private func animateGrid3() {
-        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+        UIView.animate(withDuration: 0.4) {
             self.square1.transform = CGAffineTransform(scaleX: 1, y: 1)
-        }, completion:nil)
+        }
         UIView.animate(withDuration: 0.4) {
             self.square2.transform = CGAffineTransform(scaleX: 1, y: 1)
         }
@@ -128,5 +128,29 @@ class GridView: UIView {
         UIView.animate(withDuration: 0.4) {
             self.square4.transform = CGAffineTransform(scaleX: 1, y: 1)
         }
+    }
+    
+    func pickedImageAnimation(buttonTag: Int) {
+        var button: UIButton?
+        switch buttonTag {
+        case 1:
+            button = square1
+        case 2:
+            button = square2
+        case 3:
+            button = square3
+        case 4:
+            button = square4
+        case 5:
+            button = rectangle1
+        case 6:
+            button = rectangle2
+        default:
+            break
+        }
+        button?.transform = CGAffineTransform(scaleX: 0, y: 0)
+        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.7, options: [], animations: {
+            button?.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }, completion:nil)
     }
 }
